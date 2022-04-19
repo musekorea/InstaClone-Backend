@@ -1,7 +1,5 @@
-const { ApolloServer, gql } = require("apollo-server");
-const {
-	ApolloServerPluginLandingPageGraphQLPlayground,
-} = require("apollo-server-core");
+import { ApolloServer, gql } from "apollo-server";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 
 const typeDefs = gql`
 	type Query {
@@ -9,7 +7,6 @@ const typeDefs = gql`
 	}
 `;
 
-// A map of functions which return data for the schema.
 const resolvers = {
 	Query: {
 		hello: () => "HI",
