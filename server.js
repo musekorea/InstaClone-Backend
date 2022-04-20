@@ -1,15 +1,35 @@
 import { ApolloServer, gql } from "apollo-server";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 
+const DB = [
+	{ id: 1, title: "test1", year: 2000 },
+	{ id: 2, title: "test2", year: 2010 },
+	{ id: 3, title: "test3", year: 2020 },
+];
+
 const typeDefs = gql`
+	type Movie {
+		title: String
+		year: Int
+	}
 	type Query {
-		hello: String
+		movies: [Movie]
+		movie(id: Int!): Movie
 	}
 `;
 
 const resolvers = {
 	Query: {
-		hello: () => "HI",
+		movies: () => [...DB],
+		movie: (_, { id }) => {
+			const movieData = DB.filter((movie) => {
+				if (movie.id === id) {
+					return movie;
+				}
+			});
+			console.log(...movieData);
+			return movieData[0];
+		},
 	},
 };
 
