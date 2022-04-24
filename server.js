@@ -9,8 +9,9 @@ let DB = [
 
 const typeDefs = gql`
 	type Movie {
-		title: String
-		year: Int
+		id: Int!
+		title: String!
+		year: Int!
 	}
 	type Query {
 		movies: [Movie]
