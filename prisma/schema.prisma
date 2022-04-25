@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Movie {
+model Movies {
   id Int @id @default(autoincrement())
   title String
   year Int
