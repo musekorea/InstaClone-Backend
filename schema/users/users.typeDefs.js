@@ -11,9 +11,9 @@ export default gql`
 		createdAt: String
 		updatedAt: String
 	}
- type Query {
-   
- }
+	type Query {
+		seeProfile(userName: String!): User
+	}
 	type Mutation {
 		createAccount(
 			firstName: String!
