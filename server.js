@@ -1,7 +1,7 @@
 import "dotenv/config";
-import { ApolloServer, gql } from "apollo-server";
+import { ApolloServer } from "apollo-server";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
-import schema from "./graphql_shcema";
+import schema from "./graphql_schema";
 
 const PORT = process.env.PORT;
 
