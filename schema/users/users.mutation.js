@@ -30,5 +30,19 @@ export default {
 				console.log(error);
 			}
 		},
+		login: async (_, { userName, password }) => {
+			try {
+				const user = await client.user.findUnique({ where: { userName } });
+				if (!user) {
+					return { success: false, error: "User not found" };
+				}
+				const passwordCheck = await bcrypt.compare(password, user.password);
+				if (!passwordCheck) {
+					return { success: false, error: "Incorrect Password" };
+				}
+			} catch (error) {
+				console.log(error);
+			}
+		},
 	},
 };
