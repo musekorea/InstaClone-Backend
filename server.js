@@ -4,7 +4,6 @@ import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-co
 import schema from "./graphql_schema";
 
 const PORT = process.env.PORT;
-console.log(PORT);
 
 const server = new ApolloServer({
 	schema,
