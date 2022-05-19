@@ -7,6 +7,12 @@ const PORT = process.env.PORT;
 
 const server = new ApolloServer({
 	schema,
+	context: ({ req, _ }) => {
+		console.log(req.headers.token);
+		return {
+			token: req.headers.token,
+		};
+	},
 	plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
 });
 
