@@ -3,6 +3,7 @@ import client from "../../client";
 
 export const getUser = async (token) => {
 	try {
+		console.log(token);
 		const id = jwt.verify(token, process.env.TOKEN_SECRET_KEY).id;
 		const loginUser = await client.user.findUnique({ where: { id } });
 		if (loginUser) {
