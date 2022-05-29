@@ -7,7 +7,7 @@ export default {
 		editProfile: protectResolver(
 			async (
 				_,
-				{ firstName, lastName, userName, email, password },
+				{ firstName, lastName, userName, email, password, bio },
 				{ loginUser }
 			) => {
 				try {
@@ -23,6 +23,7 @@ export default {
 							userName,
 							email,
 							password: hashedPassword ? hashedPassword : password,
+							bio,
 						},
 					});
 					if (updateUser) {

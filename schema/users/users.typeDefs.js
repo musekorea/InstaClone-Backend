@@ -10,5 +10,7 @@ export default gql`
 		#password: String
 		createdAt: String
 		updatedAt: String
+		bio: String
+		avatar: String
 	}
 `;
