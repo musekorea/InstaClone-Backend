@@ -1,16 +1,18 @@
 import client from "../../../client";
 import bcrypt from "bcrypt";
 import { protectResolver } from "../users.utils";
-
+import GraphQLUpload from "graphql-upload/GraphQLUpload.js";
 export default {
+	Upload: GraphQLUpload,
 	Mutation: {
 		editProfile: protectResolver(
 			async (
 				_,
-				{ firstName, lastName, userName, email, password, bio },
+				{ firstName, lastName, userName, email, password, bio, avatar },
 				{ loginUser }
 			) => {
 				try {
+					console.log("test", avatar);
 					let hashedPassword = null;
 					if (password) {
 						hashedPassword = await bcrypt.hash(password, 10);
